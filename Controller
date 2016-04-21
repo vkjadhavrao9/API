@@ -1,0 +1,81 @@
+  public class PolicyUploadController : System.Web.Http.ApiController
+    {
+        authenticate auth;
+
+        List<PolicyUpload> objpolup = new List<PolicyUpload>();
+
+      [HttpPost]
+        public HttpResponseMessage WarrantyBazzarPolicyUpload(IEnumerable<PolicyUpload> objpolup)
+        {
+            PolicyUpload objrequest = new PolicyUpload();
+
+            Success res = new Success();
+            try
+            {
+                var req = Request;
+                var headers = req.Headers;
+                string token = "";
+                auth = new authenticate();
+                if (headers.Contains("API-TOKEN-KEY"))
+                {
+                    token = headers.GetValues("API-TOKEN-KEY").First();
+                }
+
+                if (auth._Authenticate(token, "WarrantyBazzar"))
+                {
+
+                    res = objrequest.WarrantyBazzar_SubmitRequest_List(objpolup);
+
+                }
+                else
+                {
+                    res.Result = false;
+                    res.Error_Message = "Authentication Failed, Not Valid Token-Key";
+
+                }
+                JsonSerializerSettings js = new JsonSerializerSettings();
+                return new HttpResponseMessage() { Content = new StringContent(JsonConvert.SerializeObject(res), Encoding.UTF8, "application/json") };
+
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    throw new System.Web.Http.HttpResponseException(new HttpResponseMessage(HttpStatusCode.Conflict)
+                    {
+                        Content = new StringContent(ex.InnerException.Message),
+                        ReasonPhrase = "Upload Failure",
+                    });
+                }
+                else
+                {
+                    throw new System.Web.Http.HttpResponseException(new HttpResponseMessage(HttpStatusCode.Conflict)
+                    {
+                        Content = new StringContent(ex.Message),
+                        ReasonPhrase = "Upload Failure",
+                    });
+                }
+            }
+
+        }
+}
+
+public class authenticate : AuthorizeAttribute
+    {
+        PolicyUpload objrequest = new PolicyUpload();
+        public bool _Authenticate(string key, string client)
+        {
+            //  string authorizedKey = ConfigurationManager.AppSettings["TOKEN-KEY"];
+
+            if (objrequest.Validate_key(key, client) == true)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+
+
+    }
