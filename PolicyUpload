@@ -1,0 +1,241 @@
+    public class Success
+    {
+        public bool Result { get; set; }
+        public string Error_Message { get; set; }
+
+    }
+
+    public class PolicyUpload
+    {
+        const string strKey = "";
+        public PolicyUpload() { }
+        public PolicyUpload(string REGION, string STATE, string LOCATION, string STORE,
+            string STORE_LOCATION, string _CUSTOMER_FIRST_NAME, string _CUSTOMER_LAST_NAME,
+            string CUSTOMER_EMAIL_ID, string CUSTOMER_ADDRESS, string CUSTOMER_ADDRESS_PINCODE,
+            string CUSTOMER_MOBILE_NUMBER, string INVOICE_NO_OF_THE_HANDSET,
+            string INVOICE_DATE_YY_MM_DD, string INVOICE_VALUE_SUM_INSURED,
+            string SKU, string MAKE, string MODEL, string MOBILE_PHONE_IMEI_NUMBER,
+            string INSURANCE_CERTIFICATE_REFERENCE_NUMBER, string PLAN_SELECTED, string START_DATE_OF_INSURANCE_COVER_YY_MM_DD, string START_TIME_OF_INSURANCE_COVER,
+            string END_DATE_OF_INSURANCE_COVER_YY_MM_DD, string PREMIUM, string SERVICE_TAX,
+            string TOTAL_PREMIUM, string OTHERS, string CATEGORY, string UNIT_NEW_CERTIFIED,string CUSTCODE)
+        {
+            this._REGION = REGION;
+            this._STATE = STATE;
+            this._LOCATION = LOCATION;
+            this._STORE = STORE;
+            this._STORE_LOCATION = STORE_LOCATION;
+            this._CUSTOMER_FIRST_NAME = CUSTOMER_FIRST_NAME;
+            this._CUSTOMER_LAST_NAME = CUSTOMER_LAST_NAME;
+            this._CUSTOMER_EMAIL_ID = CUSTOMER_EMAIL_ID;
+            this._CUSTOMER_ADDRESS = CUSTOMER_ADDRESS;
+            this._CUSTOMER_ADDRESS_PINCODE = CUSTOMER_ADDRESS_PINCODE;
+            this._CUSTOMER_MOBILE_NUMBER = CUSTOMER_MOBILE_NUMBER;
+            this._INVOICE_NO_OF_THE_HANDSET = INVOICE_NO_OF_THE_HANDSET;
+            this._INVOICE_DATE_YY_MM_DD = INVOICE_DATE_YY_MM_DD;
+            this._INVOICE_VALUE_SUM_INSURED = INVOICE_VALUE_SUM_INSURED;
+            this._SKU = SKU;
+            this._MAKE = MAKE;
+            this._MODEL = MODEL;
+            this._MOBILE_PHONE_IMEI_NUMBER = MOBILE_PHONE_IMEI_NUMBER;
+            this._INSURANCE_CERTIFICATE_REFERENCE_NUMBER = INSURANCE_CERTIFICATE_REFERENCE_NUMBER;
+            this._PLAN_SELECTED = PLAN_SELECTED;
+            this._START_DATE_OF_INSURANCE_COVER_YY_MM_DD = START_DATE_OF_INSURANCE_COVER_YY_MM_DD;
+            this._START_TIME_OF_INSURANCE_COVER = START_TIME_OF_INSURANCE_COVER;
+            this._END_DATE_OF_INSURANCE_COVER_YY_MM_DD = END_DATE_OF_INSURANCE_COVER_YY_MM_DD;
+            this._PREMIUM = PREMIUM;
+            this._SERVICE_TAX = SERVICE_TAX;
+            this._TOTAL_PREMIUM = TOTAL_PREMIUM;
+            this._OTHERS = OTHERS;
+            this._CATEGORY = CATEGORY;
+            this._UNIT_NEW_CERTIFIED = UNIT_NEW_CERTIFIED;
+            this._CUSTCODE = CUSTCODE;
+
+
+        }
+        // variable to hold data coming from JSON
+        public string _REGION;
+        public string _STATE;
+        public string _LOCATION;
+        public string _STORE;
+        public string _STORE_LOCATION;
+        public string _CUSTOMER_FIRST_NAME;
+        public string _CUSTOMER_LAST_NAME;
+        public string _CUSTOMER_EMAIL_ID;
+        public string _CUSTOMER_ADDRESS;
+        public string _CUSTOMER_ADDRESS_PINCODE;
+        public string _CUSTOMER_MOBILE_NUMBER;
+        public string _INVOICE_NO_OF_THE_HANDSET;
+        public string _INVOICE_DATE_YY_MM_DD;
+        public string _INVOICE_VALUE_SUM_INSURED;
+        public string _SKU;
+        public string _MAKE;
+        public string _MODEL;
+        public string _MOBILE_PHONE_IMEI_NUMBER;
+        public string _INSURANCE_CERTIFICATE_REFERENCE_NUMBER;
+        public string _PLAN_SELECTED;
+        public string _START_DATE_OF_INSURANCE_COVER_YY_MM_DD;
+        public string _START_TIME_OF_INSURANCE_COVER;
+        public string _END_DATE_OF_INSURANCE_COVER_YY_MM_DD;
+        public string _PREMIUM;
+        public string _SERVICE_TAX;
+        public string _TOTAL_PREMIUM;
+        public string _OTHERS;
+        public string _CATEGORY;
+        public string _UNIT_NEW_CERTIFIED;
+        public string _CUSTCODE;
+        List<PolicyUpload> lstpolicyupload;
+
+
+        //---set properties
+        public DataTable xmlDoc { get; set; }
+        public string REGION { set { this._REGION = value; } get { return _REGION; } }
+        public string STATE { set { this._STATE = value; } get { return _STATE; } }
+        public string LOCATION { set { this._LOCATION = value; } get { return _LOCATION; } }
+        public string STORE { set { this._STORE = value; } get { return _STORE; } }
+        public string STORE_LOCATION { set { this._STORE_LOCATION = value; } get { return _STORE_LOCATION; } }
+        public string CUSTOMER_FIRST_NAME { set { this._CUSTOMER_FIRST_NAME = value; } get { return _CUSTOMER_FIRST_NAME; } }
+        public string CUSTOMER_LAST_NAME { set { this._CUSTOMER_LAST_NAME = value; } get { return _CUSTOMER_LAST_NAME; } }
+        public string CUSTOMER_EMAIL_ID { set { this._CUSTOMER_EMAIL_ID = value; } get { return _CUSTOMER_EMAIL_ID; } }
+        public string CUSTOMER_ADDRESS { set { this._CUSTOMER_ADDRESS = value; } get { return _CUSTOMER_ADDRESS; } }
+        public string CUSTOMER_ADDRESS_PINCODE { set { this._CUSTOMER_ADDRESS_PINCODE = value; } get { return _CUSTOMER_ADDRESS_PINCODE; } }
+        public string CUSTOMER_MOBILE_NUMBER { set { this._CUSTOMER_MOBILE_NUMBER = value; } get { return _CUSTOMER_MOBILE_NUMBER; } }
+        public string INVOICE_NO_OF_THE_HANDSET { set { this._INVOICE_NO_OF_THE_HANDSET = value; } get { return _INVOICE_NO_OF_THE_HANDSET; } }
+        public string INVOICE_DATE_YY_MM_DD { set { this._INVOICE_DATE_YY_MM_DD = value; } get { return _INVOICE_DATE_YY_MM_DD; } }
+        public string INVOICE_VALUE_SUM_INSURED { set { this._INVOICE_VALUE_SUM_INSURED = value; } get { return _INVOICE_VALUE_SUM_INSURED; } }
+        public string SKU { set { this._SKU = value; } get { return _SKU; } }
+        public string MAKE { set { this._MAKE = value; } get { return _MAKE; } }
+        public string MODEL { set { this._MODEL = value; } get { return _MODEL; } }
+        public string MOBILE_PHONE_IMEI_NUMBER { set { this._MOBILE_PHONE_IMEI_NUMBER = value; } get { return _MOBILE_PHONE_IMEI_NUMBER; } }
+        public string INSURANCE_CERTIFICATE_REFERENCE_NUMBER { set { this._INSURANCE_CERTIFICATE_REFERENCE_NUMBER = value; } get { return _INSURANCE_CERTIFICATE_REFERENCE_NUMBER; } }
+        public string PLAN_SELECTED { set { this._PLAN_SELECTED = value; } get { return _PLAN_SELECTED; } }
+        public string START_DATE_OF_INSURANCE_COVER_YY_MM_DD { set { this._START_DATE_OF_INSURANCE_COVER_YY_MM_DD = value; } get { return _START_DATE_OF_INSURANCE_COVER_YY_MM_DD; } }
+        public string START_TIME_OF_INSURANCE_COVER { set { this._START_TIME_OF_INSURANCE_COVER = value; } get { return _START_TIME_OF_INSURANCE_COVER; } }
+        public string END_DATE_OF_INSURANCE_COVER_YY_MM_DD { set { this._END_DATE_OF_INSURANCE_COVER_YY_MM_DD = value; } get { return _END_DATE_OF_INSURANCE_COVER_YY_MM_DD; } }
+        public string PREMIUM { set { this._PREMIUM = value; } get { return _PREMIUM; } }
+        public string SERVICE_TAX { set { this._SERVICE_TAX = value; } get { return _SERVICE_TAX; } }
+        public string TOTAL_PREMIUM { set { this._TOTAL_PREMIUM = value; } get { return _TOTAL_PREMIUM; } }
+        public string OTHERS { set { this._OTHERS = value; } get { return _OTHERS; } }
+        public string CATEGORY { set { this._CATEGORY = value; } get { return _CATEGORY; } }
+        public string UNIT_NEW_CERTIFIED { set { this._UNIT_NEW_CERTIFIED = value; } get { return _UNIT_NEW_CERTIFIED; } }
+        public string CUSTCODE { set { this._CUSTCODE = value; } get { return _CUSTCODE; } }
+        public List<PolicyUpload> lstPolicyUpload
+        {
+            get { return lstpolicyupload; }
+            set { lstpolicyupload = value; }
+        }
+
+   public Success WarrantyBazzar_SubmitRequest_List(IEnumerable<PolicyUpload> objpolup)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            connString = DecryptText(connString);
+            SqlConnection con = new SqlConnection(connString);
+            SqlCommand _cmd;
+            Success sucess = new Success();
+            try
+            {
+
+                con.Open();
+                string spName = "USP_WARRANTY_BAZZAR_POLICY_WEBAPI_BULK_INSERT";
+                _cmd = new SqlCommand(spName);
+                _cmd.Connection = con;
+                _cmd.CommandType = CommandType.StoredProcedure;
+
+
+                // List<PolicyUpload> lstPU = JsonConvert.DeserializeObject<List<PolicyUpload>>(objpolup);
+                //JavaScriptSerializer serializer = new JavaScriptSerializer();
+                // List<PolicyUpload> ListAnswers = serializer.Deserialize<List<PolicyUpload>>(objpolup);
+                List<PolicyUpload> lstPU = new List<PolicyUpload>();
+                lstPU = objpolup.ToList<PolicyUpload>();
+
+
+                DataTable dt = new DataTable();
+                DataSet ds = new DataSet();
+                dt.Columns.Add(new System.Data.DataColumn("REGION", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("STATES", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("DISTRICT", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("STORE_CODE", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("STORE_NAME", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("CUSTOMER_FIRST_NAME", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("CUSTOMER_LAST_NAME", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("CUSTOMER_EMAIL_ID", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("CUSTOMER_ADDRESS", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("CUSTOMER_ADDRESS_PINCODE", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("CUSTOMER_MOBILE_NUMBER", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("INVOICE_NUMBER_HANDSET", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("INVOICE_DATE", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("INVOICE_VALUE", typeof(String)));
+                //dt.Columns.Add(new System.Data.DataColumn("SKU", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("MAKE", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("MODEL", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("IMEI_NUMBER", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("INS_CERT_REF_NUMBER", typeof(String)));
+                //dt.Columns.Add(new System.Data.DataColumn("PLAN_SELECTED", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("START_DATE_INSCOVER", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("START_TIME_INSCOVER", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("END_DATE_INSCOVER", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("PREMIUM", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("SERVICE_TAX", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("TOTAL_PREMIUM", typeof(String)));
+                dt.Columns.Add(new System.Data.DataColumn("CUSTCODE", typeof(String)));
+                
+                //dt.Columns.Add(new System.Data.DataColumn("CATEGORY", typeof(String)));
+                foreach (PolicyUpload policydata in lstPU)
+                {
+                    dt.Rows.Add(new object[] { policydata.REGION, policydata.STATE, policydata.LOCATION, policydata.STORE, policydata.STORE_LOCATION, policydata.CUSTOMER_FIRST_NAME, policydata.CUSTOMER_LAST_NAME, policydata.CUSTOMER_EMAIL_ID,
+                        policydata.CUSTOMER_ADDRESS, policydata.CUSTOMER_ADDRESS_PINCODE, policydata.CUSTOMER_MOBILE_NUMBER, policydata.INVOICE_NO_OF_THE_HANDSET, policydata.INVOICE_DATE_YY_MM_DD, policydata.INVOICE_VALUE_SUM_INSURED,
+                        policydata.MAKE, policydata.MODEL, policydata.MOBILE_PHONE_IMEI_NUMBER, policydata.INSURANCE_CERTIFICATE_REFERENCE_NUMBER, policydata.START_DATE_OF_INSURANCE_COVER_YY_MM_DD, policydata.START_TIME_OF_INSURANCE_COVER, 
+                        policydata.END_DATE_OF_INSURANCE_COVER_YY_MM_DD, policydata.PREMIUM, policydata.SERVICE_TAX, policydata.TOTAL_PREMIUM,policydata.CUSTCODE});
+
+                }
+                dt.AcceptChanges();
+                dt.TableName = "UploadWarrantyBazzarPolicy";
+                xmlDoc = dt;
+                ds.Tables.Add(xmlDoc.Copy());
+
+                _cmd.Parameters.AddWithValue("@Xml_Docs_Detail", ds.GetXml());
+
+                SqlParameter paraMsg = new SqlParameter("@msg", SqlDbType.VarChar, 1000);
+                paraMsg.Direction = ParameterDirection.Output;
+                _cmd.Parameters.Add(paraMsg);
+
+
+
+
+
+                Int64 rowsAffected = _cmd.ExecuteNonQuery();
+                _cmd.Dispose();
+                if (rowsAffected != -1)
+                {
+                    if (paraMsg.Value.ToString() == "Something went wrong, Policy data not posted successfully, Please try again")
+                    {
+                        sucess.Result = false;
+                        sucess.Error_Message = paraMsg.Value.ToString();
+                    }
+                    else
+                    {
+                        sucess.Result = true;
+                        sucess.Error_Message = paraMsg.Value.ToString();
+                    }
+                    // "Success"
+                }
+                else
+                {
+                    sucess.Result = false;
+                    sucess.Error_Message = paraMsg.Value.ToString();
+                    //  result = "Failure";
+                }
+            }
+            catch (Exception ex)
+            {
+                sucess.Error_Message = ex.Message.ToString();
+
+            }
+            finally
+            {
+
+                con.Close();
+            }
+            return sucess;
+        }
+}
+}
