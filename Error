@@ -1,0 +1,18 @@
+No MediaTypeFormatter is available to read an object of type 'IEnumerable`1' from content with media type 'text/plain'
+
+{
+  "Message": "An error has occurred.",
+  "ExceptionMessage": "No MediaTypeFormatter is available to read an object of type 'IEnumerable`1' from content with media type 'text/plain'.",
+  "ExceptionType": "System.InvalidOperationException",
+  "StackTrace": "   at System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)\r\n   at System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)\r\n   at System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger)\r\n   at System.Web.Http.ModelBinding.FormatterParameterBinding.ExecuteBindingAsync(ModelMetadataProvider metadataProvider, HttpActionContext actionContext, CancellationToken cancellationToken)\r\n   at System.Web.Http.Controllers.HttpActionBinding.<>c__DisplayClass1.<ExecuteBindingAsync>b__0(HttpParameterBinding parameterBinder)\r\n   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()\r\n   at System.Threading.Tasks.TaskHelpers.IterateImpl(IEnumerator`1 enumerator, CancellationToken cancellationToken)"
+}
+
+{
+    "Specifier": {
+        "RegisterID": "example glossary",
+		"State": "example glossary",
+		"City": "example glossary",
+		"Pincode": "example glossary",
+		"MobileNo": "example glossary"
+    }
+}
