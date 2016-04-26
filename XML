@@ -1,0 +1,41 @@
+
+IF EXISTS(SELECT 1
+from 
+(
+SELECT tblXML.value('(Date)[1]','VARCHAR(50)') as [DATE],
+tblXML.value('(AccountNo)[1]','VARCHAR(50)') as ACCOUNT_NO
+,tblXML.value('(Appid)[1]','VARCHAR(50)') as Appid
+,tblXML.value('(Amount)[1]','NUMERIC (18,2)') as Amount
+,tblXML.value('(VOUCHERID)[1]','VARCHAR(50)') as VOUCHERID
+,tblXML.value('(ENTITY)[1]','VARCHAR(50)') as ENTITY_NAME
+,tblXML.value('(TrxID)[1]','NUMERIC') as TrxID
+FROM @BREAKUP_DATA_XML.nodes('/dsBreakup/BreakupDetails') as ParamValues(tblXML)
+)t INNER JOIN 
+FIN_BREAKUP_DETAILS BREAKUP 
+on (t.ACCOUNT_NO=BREAKUP.BREAKUP_ACC_NO) 
+WHERE t.VOUCHERID=BREAKUP.BREAKUP_REASON_CODE)
+BEGIN
+		
+		SELECT  @listClt = COALESCE(@listClt+',' ,'') + temp.VOUCHERID
+		from  
+		(SELECT t.VOUCHERID+'-'+CAST(BREAKUP_TRANSACTION_ID AS VARCHAR) AS VOUCHERID
+			from (
+					SELECT tblXML.value('(Date)[1]','VARCHAR(50)') as [DATE],
+					tblXML.value('(AccountNo)[1]','VARCHAR(50)') as ACCOUNT_NO
+					,tblXML.value('(Appid)[1]','VARCHAR(50)') as Appid
+					,tblXML.value('(Amount)[1]','NUMERIC (18,2)') as Amount
+					,tblXML.value('(VOUCHERID)[1]','VARCHAR(50)') as VOUCHERID
+					,tblXML.value('(ENTITY)[1]','VARCHAR(50)') as ENTITY_NAME
+					,tblXML.value('(TrxID)[1]','NUMERIC') as TrxID
+					FROM @BREAKUP_DATA_XML.nodes('/dsBreakup/BreakupDetails') as ParamValues(tblXML)
+				 ) t 
+			INNER JOIN 
+			FIN_BREAKUP_DETAILS BREAKUP 
+			on (t.ACCOUNT_NO=BREAKUP.BREAKUP_ACC_NO) 
+			WHERE t.VOUCHERID=BREAKUP.BREAKUP_REASON_CODE) temp
+
+		SELECT @MSG='Following Voucher ID already exists : '+ @listClt
+		PRINT @MSG
+		RETURN
+
+END
